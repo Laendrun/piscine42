@@ -2,13 +2,28 @@
 
 char *ft_strcapitalize(char *str)
 {
-	if str[i-1] >= ' ' && str[i -1] <= '/'
-		str[i] = capitalize
+	int i = 0;
+	while(str[i] != '\0')
+	{
+		int uppercase;
+		if (str[i]
+	}	
+
+	/* this will not work...
+	if str[i-1] >= ' ' && str[i -1] <= '/'{
+		str[i] = str[i] + 32
+	}
 	if str[i-1] >= ':' && str[i-1] <= '@' 
-		str[i] = capitalize
+	{	
+	str[i] = capitalize
+	}	
 	if str[i-1] >= '[' && str[i-1] <= '`'
-		str[i] = capitalize
+	{	
+	str[i] = capitalize
+	}	
 	if str[i-1] >= '{' && str[i-1] <= '~' 
+	{}
+	*/
 }
 
 int main(void)
