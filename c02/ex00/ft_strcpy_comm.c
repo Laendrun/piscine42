@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saeby <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 17:50:41 by saeby             #+#    #+#             */
-/*   Updated: 2022/09/02 09:47:55 by saeby            ###   ########.fr       */
+/*   Created: 2022/09/01 07:55:09 by saeby             #+#    #+#             */
+/*   Updated: 2022/09/01 08:09:56 by saeby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_uppercase(char *str)
+char	*ft_strcpy(char *dest, char *src)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	// iterate over src until EOF
+	while (src[i] != '\0')
 	{
-		if (!(str[i] >= 'A' && str[i] <= 'Z'))
-		{
-			return (0);
-		}
-		else
-		{
-			i++;
-		}
+		dest[i] = src[i];
+		i++;
 	}
-	return (1);
+	// add EOF to the last index of dest
+	dest[i] = '\0';
+	//   ^ this will not remove last letter because we have already made an i++ before exiting while loop
+
+	// as man strcpy says, the function returns the value of the destination
+	return (dest);
 }

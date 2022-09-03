@@ -6,7 +6,7 @@
 /*   By: saeby <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 17:30:18 by saeby             #+#    #+#             */
-/*   Updated: 2022/09/01 17:33:22 by saeby            ###   ########.fr       */
+/*   Updated: 2022/09/02 14:04:59 by saeby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@ int	ft_str_is_numeric(char *str)
 {
 	int	i;
 
-	i + 0;
+	i = 0;
 	while (str[i] != '\0')
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
@@ -23,6 +23,7 @@ int	ft_str_is_numeric(char *str)
 		}
 		else
 		{
+			write(1, &i, 1);
 			i++;
 		}
 	}

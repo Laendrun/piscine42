@@ -6,22 +6,20 @@
 /*   By: saeby <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:50:43 by saeby             #+#    #+#             */
-/*   Updated: 2022/09/01 17:15:39 by saeby            ###   ########.fr       */
+/*   Updated: 2022/09/02 13:51:19 by saeby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdbool.h>
 
 int	ft_str_is_alpha(char *str)
 {
 	int		i;	
 	char	*x;
 
-	*x = str;
+	x = str;
 	i = 0;
 	while (x[i] != '\0')
 	{
-		if (!(x[i] >= 'a' && x[i] <= 'z') || (x[i] >= 'A' && x[i] <= 'Z'))
+		if (!(x[i] >= 'a' && x[i] <= 'z') && !(x[i] >= 'A' && x[i] <= 'Z'))
 		{
 			return (0);
 		}

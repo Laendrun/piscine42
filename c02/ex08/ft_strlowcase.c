@@ -1,10 +1,23 @@
-char *ft_strlowcase(char *str)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: saeby <marvin@42lausanne.ch>               +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/02 09:40:10 by saeby             #+#    #+#             */
+/*   Updated: 2022/09/02 14:31:25 by saeby            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+char	*ft_strlowcase(char *str)
 {
-	int i;
+	int	i;
+
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
+		if (str[i] >= 'A' && str[i] <= 'Z')
 		{
 			str[i] = str[i] + 32;
 		}
@@ -12,6 +25,7 @@ char *ft_strlowcase(char *str)
 		{
 			str[i] = str[i];
 		}
+		i++;
 	}
-	return str;
+	return (str);
 }
