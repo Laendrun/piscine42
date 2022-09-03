@@ -6,9 +6,11 @@
 /*   By: saeby <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 17:30:18 by saeby             #+#    #+#             */
-/*   Updated: 2022/09/02 14:04:59 by saeby            ###   ########.fr       */
+/*   Updated: 2022/09/03 04:34:14 by saeby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 int	ft_str_is_numeric(char *str)
 {

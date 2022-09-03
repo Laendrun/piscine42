@@ -6,9 +6,11 @@
 /*   By: saeby <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 08:10:37 by saeby             #+#    #+#             */
-/*   Updated: 2022/09/02 13:44:17 by saeby            ###   ########.fr       */
+/*   Updated: 2022/09/03 04:28:28 by saeby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
