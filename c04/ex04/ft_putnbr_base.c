@@ -6,12 +6,22 @@
 /*   By: saeby <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 15:29:12 by saeby             #+#    #+#             */
-/*   Updated: 2022/09/05 23:12:03 by saeby            ###   ########.fr       */
+/*   Updated: 2022/09/06 03:50:55 by saeby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
+
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
 
 char	*ft_strstr(char *str, char *to_find)
 {
@@ -21,18 +31,14 @@ char	*ft_strstr(char *str, char *to_find)
 	i_str = 0;
 	j = 0;
 	if (to_find[0] == '\0')
-	{
 		return (str);
-	}
 	while (str[i_str] != '\0')
 	{
 		while (str[i_str + j] == to_find[j] && str[i_str + j] != '\0')
 		{
 			j++;
 			if (to_find[j] == '\0')
-			{
 				return (str + i_str);
-			}
 		}
 		i_str++;
 		j = 0;
@@ -40,66 +46,77 @@ char	*ft_strstr(char *str, char *to_find)
 	return (0);
 }
 
-void	ft_base_transform(int nbr, int base_type, char base[100], char adr[1000], int *i)
+void	ft_base_transform(int params[2], char base[100], char adr[1000], int *i)
 {
-	int v;
+	int	v;
 
-	v = nbr % base_type;
+	v = params[1] % params[0];
 	adr[*i] = base[v];
 	*i = *i + 1;
-	if (nbr / base_type > 0)
+	if (params[1] / params[0] > 0)
 	{
-		ft_base_transform(nbr / base_type, base_type, base, adr, i);
+		params[1] = params[1] / params[0];
+		ft_base_transform(params, base, adr, i);
 	}
 }
 
-int ft_pow(int base, int exponent)
+int	ft_is_valid(char *base)
 {
-	if (exponent == 0)
-		return 1;
-	if (base == 0)
-		return 0;
-	return base * ft_pow(base, exponent - 1);
-}
+	int	x;
+	int	i;
+	int	j;
 
+	i = 0;
+	j = 0;
+	x = ft_strlen(base);
+	if (base[0] == '\0' || x == 1)
+		return (0);
+	while (base[i] != '\0')
+	{
+		if (base[i] == '-' || base[i] == '+')
+			return (0);
+		j = i + 1;
+		while (base[j] != '\0')
+		{
+			if (base[i] == base[j])
+				return (0);
+			j++;
+		}
+		i++;
+	}	
+	return (1);
+}
 
 void	ft_putnbr_base(int nbr, char *base)
 {
+	char	base_chars[100];
+	char	values[1000];
+	int		i;
+	int		params[2];
 
-	int base_type;
-	char base_chars[100];
-	char values[1000];
-	int i;
-
-	i = 0;
-	base_type = 0;
-
-	while (base[base_type] != '\0')
+	if (ft_is_valid(base))
 	{
-		base_chars[base_type] = base[base_type];
-		base_type++;
+		if (nbr < 0)
+		{
+			nbr *= -1;
+			write(1, "-", 1);
+		}
+		i = 0;
+		params[0] = -1;
+		params[1] = nbr;
+		while (base[++params[0]] != '\0')
+			base_chars[params[0]] = base[params[0]];
+		ft_base_transform(params, base_chars, values, &i);
+		while (i-- >= 0)
+			write(1, &values[i], 1);
+		write(1, "\n", 1);
 	}
-	//char a = 'a';
-	//printf("%s", ft_strstr(&base_chars[1], &base_chars[0]));
-	while (base[base_type] != '\0')
-	{
-		base_chars[base_type] = base[base_type];
-		base_type++;
-	}
-	ft_base_transform(nbr, base_type, base_chars, values, &i);
-	while (i >= 0)
-	{
-		write(1, &values[i], 1);
-		i--;
-	}
-	base_chars[0] = '\n';
-	write(1, &base_chars[0], 1);
-	nbr++;
 }
 
 int main(void)
 {
-	char base[] = "abcde";
-	int nbr = 46;
+	char base[] = "1369";
+	int nbr = -14;
 	ft_putnbr_base(nbr, base);
 }
+
