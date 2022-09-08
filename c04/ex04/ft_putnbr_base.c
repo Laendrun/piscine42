@@ -6,7 +6,7 @@
 /*   By: saeby <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 15:29:12 by saeby             #+#    #+#             */
-/*   Updated: 2022/09/06 03:50:55 by saeby            ###   ########.fr       */
+/*   Updated: 2022/09/07 18:45:11 by saeby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,8 @@ void	ft_putnbr_base(int nbr, char *base)
 
 int main(void)
 {
-	char base[] = "1369";
-	int nbr = -14;
+	char base[] = "0X2Z4567";
+	int nbr = 14;
 	ft_putnbr_base(nbr, base);
 }
 
