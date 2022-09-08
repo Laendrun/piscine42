@@ -6,7 +6,7 @@
 /*   By: saeby <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 18:51:20 by saeby             #+#    #+#             */
-/*   Updated: 2022/09/04 18:56:45 by saeby            ###   ########.fr       */
+/*   Updated: 2022/09/06 03:20:51 by saeby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,3 +21,10 @@ int	ft_strlen(char *str)
 		i++;
 	return (i);
 }
+/*
+int main(void)
+{
+	char a[] = "test123";
+	printf("%d\n", ft_strlen(a));
+}
+*/
