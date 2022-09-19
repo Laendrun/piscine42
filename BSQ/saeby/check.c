@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saeby <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 10:59:10 by saeby             #+#    #+#             */
-/*   Updated: 2022/09/19 13:37:05 by saeby            ###   ########.fr       */
+/*   Created: 2022/09/19 13:02:10 by saeby             #+#    #+#             */
+/*   Updated: 2022/09/19 13:12:23 by saeby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 
-int	main(int ac, char **av)
+int	char_is_num(char c)
 {
-	t_mapi map_info;
-	
-	if (ac == 2)
-	{
-		map_info = get_map_info(av[1]);
-		if (map_info.empt == 0)
-			return (map_error());
-		printf("lines: %d\n", map_info.lines);
-	}
-	else
-	{
-		ft_putstr("not yet implemented");
-	}
+	if (!(c >= 48 && c <= 57))
+		return (0);
+	return (1);
 }

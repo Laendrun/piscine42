@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   conversion.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saeby <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 10:59:10 by saeby             #+#    #+#             */
-/*   Updated: 2022/09/19 13:37:05 by saeby            ###   ########.fr       */
+/*   Created: 2022/09/19 13:17:19 by saeby             #+#    #+#             */
+/*   Updated: 2022/09/19 13:33:12 by saeby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 
-int	main(int ac, char **av)
+int	ft_atoi(char *str)
 {
-	t_mapi map_info;
-	
-	if (ac == 2)
+	int	i;
+	int	result;
+
+	result = 0;
+	i = 0;
+	while (str[i] && str[i] >= 48 && str[i] <= 57)
 	{
-		map_info = get_map_info(av[1]);
-		if (map_info.empt == 0)
-			return (map_error());
-		printf("lines: %d\n", map_info.lines);
+		result *= 10;
+		result += str[i] - 48;
+		i++;
 	}
-	else
-	{
-		ft_putstr("not yet implemented");
-	}
+	return (result);
 }
