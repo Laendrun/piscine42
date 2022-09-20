@@ -6,7 +6,7 @@
 /*   By: saeby <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 12:43:09 by saeby             #+#    #+#             */
-/*   Updated: 2022/09/15 13:26:52 by saeby            ###   ########.fr       */
+/*   Updated: 2022/09/15 15:17:42 by saeby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_putstr(char *str)
 	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		ft_putchar(str[i]);
 		i++;
@@ -56,6 +56,7 @@ void	ft_putnbr(int nb)
 void	ft_show_tab(struct s_stock_str *par)
 {
 	int	i;
+
 	i = 0;
 	while (par[i].str)
 	{

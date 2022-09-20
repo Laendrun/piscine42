@@ -6,7 +6,7 @@
 /*   By: saeby <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 10:26:40 by saeby             #+#    #+#             */
-/*   Updated: 2022/09/15 17:09:28 by saeby            ###   ########.fr       */
+/*   Updated: 2022/09/16 11:29:53 by saeby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int	ft_strlen(char *str)
 {
 	int	i;
-	
+
 	i = 0;
 	while (str[i])
 		i++;
@@ -51,22 +51,18 @@ char	*ft_strdup(char *src)
 
 struct	s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
-	int	i;
-	int	len;
-	t_stock_str *tab;
+	int			i;
+	t_stock_str	*tab;
 
-
-
-	//printf("%lu\n", ac * sizeof(t_stock_str));
-
-	tab = malloc((ac + 1) * sizeof(t_stock_str));
+	if (ac <= 0)
+		return (NULL);
+	tab = malloc(((ac + 1) * sizeof(t_stock_str)) * sizeof(int));
 	if (!tab)
 		return (NULL);
 	i = 0;
 	while (i < ac)
 	{
-		len = ft_strlen(av[i]);
-		tab[i].size = len;
+		tab[i].size = ft_strlen(av[i]);
 		tab[i].str = av[i];
 		tab[i].copy = ft_strdup(av[i]);
 		i++;
@@ -79,7 +75,7 @@ struct	s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	}
 	return (tab);
 }
-
+/*
 int	main(int argc, char *argv[])
 {
 	int	i = 0;
@@ -88,11 +84,11 @@ int	main(int argc, char *argv[])
 	while (i < argc)
 	{
 		printf("strs_tab[%d].size : %d\n", i, strs_tab[i].size);
-		printf("strs_tab[%d].str %p \n", i, strs_tab[i].str);
-		printf("argv[%d] %p\n", i, argv[i]);
+		printf("strs_tab[%d].str : %s\n", i, strs_tab[i].str);
 		printf("strs_tab[%d].copy : %s\n", i, strs_tab[i].copy);
 		i++;
 	}
 
 	return (0);
 }
+*/
