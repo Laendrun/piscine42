@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_write.c                                         :+:      :+:    :+:   */
+/*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saeby <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 11:59:07 by saeby             #+#    #+#             */
-/*   Updated: 2022/09/19 12:00:14 by saeby            ###   ########.fr       */
+/*   Created: 2022/09/19 13:57:02 by saeby             #+#    #+#             */
+/*   Updated: 2022/09/21 00:09:14 by saeby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 
-void	ft_putchar(char c)
+t_mapi	get_map_info(char *map_file)
 {
-	write(1, &c, 1);
-}
+	int		f_map;
+	t_mapi	map_infos;
 
-void	ft_putstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		ft_putchar(str[i++]);
+	map_infos.empt = '1';
+	f_map = open(map_file, O_RDONLY);
+	if (f_map == -1)
+	{
+		map_infos.empt = 0;
+		return (map_infos);
+	}
+	if (fill_map_infos(f_map, &map_infos) == -1)
+	{
+		map_infos.empt = 0;
+		return (map_infos);
+	}
+	return (map_infos);
 }

@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display.c                                          :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ybensegh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: saeby <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 14:00:03 by ybensegh          #+#    #+#             */
-/*   Updated: 2022/09/19 14:11:23 by ybensegh         ###   ########.fr       */
+/*   Created: 2022/09/19 12:04:17 by saeby             #+#    #+#             */
+/*   Updated: 2022/09/19 14:46:06 by saeby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 
-void print_map(char **map)
+int	map_error(void)
 {
-	int i;
-	
-	i = 0;
-	while(map[i])
-	{
-		ft_putstr(map[i]);
-		ft_putstr("\n");
-		i++;
-	}
+	ft_putstr("map error\n");
+	return (-1);
 }

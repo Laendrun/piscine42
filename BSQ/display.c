@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   squarefinder.c                                     :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybensegh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 14:18:28 by ybensegh          #+#    #+#             */
-/*   Updated: 2022/09/19 15:17:26 by ybensegh         ###   ########.fr       */
+/*   Created: 2022/09/19 14:00:03 by ybensegh          #+#    #+#             */
+/*   Updated: 2022/09/20 20:17:48 by saeby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "bsq.h"
 
-int possible_square(char **map,  int x, int y, int size)
+void	print_map(char **map, t_mapi *map_info)
 {
-	int ix;
-	int jy;
-	int sizemax = 4 ;
+	int	i;
+	int	j;
 
-	if (size+y > sizemax || size +x > sizemax )
-		return(0);
-	jy = y;
-	while(jy < size+y)
+	i = 0;
+	j = 0;
+	while (i < map_info->lines)
 	{
-		ix = x;
-		while(ix < size+x) 
-		{
-			if (map[jy][ix] == 'o')
-				return (0);
-			ix++;
-		}
-		jy++;
+		ft_putstr(map[i]);
+		ft_putstr("\n");
+		i++;
 	}
-	return (1);
-
 }
-
