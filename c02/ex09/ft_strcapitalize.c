@@ -6,7 +6,7 @@
 /*   By: saeby <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:05:31 by saeby             #+#    #+#             */
-/*   Updated: 2022/09/07 19:57:03 by saeby            ###   ########.fr       */
+/*   Updated: 2022/09/14 14:05:56 by saeby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,10 @@ char	*ft_strcapitalize(char *str)
 	}
 	return (str);
 }
-
+/*
 int	main(void)
 {
 	char str[] = "salut, 51comment tu vas ? 42mots quarante-deux; cinquante+et+un";
 	printf("%s", ft_strcapitalize(str));
 }
+*/
