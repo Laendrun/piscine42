@@ -1,25 +1,30 @@
-SRC_DIR = ./srcs
-INC_DIR = ./includes
-BIN_DIR = .
-SRC = $(SRC_DIR)/ft_putchar.c $(SRC_DIR)/ft_swaps.c $(SRC_DIR)/ft_putstr.c $(SRC_DIR)/ft_strlen.c $(SRC_DIR)/ft_strcmp.c
-OBJ = $(SRC:$(SRC_DIR)/%.c=$(SRC_DIR)%.o)
+SRC = $(SRC_DIR)/ft_putchar.c $(SRC_DIR)/ft_putstr.c $(SRC_DIR)/ft_strcmp.c $(SRC_DIR)/ft_strlen.c $(SRC_DIR)/ft_swap.c
+
+SRC_DIR := srcs
+OBJ_DIR := srcs
+INC_DIR := includes
+
 TARGET = libft.a
+OBJS := $(SRC:%.c=%.o)
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CCFLAGS = -Wall -Wextra -Werror
 
-all : $(TARGET)
+all: $(TARGET)
 
-$(TARGET) : $(OBJ)
-	$(CC) $^ $(CFLAGS) -o $(BIN_DIR)/$@
+$(TARGET): $(OBJS) 
+	ar rc $(TARGET) $(OBJS)
+	ranlib $(TARGET)
 
 $(SRC_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) -c $^ $(CFLAGS)
+	$(CC) $(CCFLAGS) -c $? -o $@ -I$(INC_DIR)
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(TARGET)
 
 re: fclean all
+
+.PHONY: all
